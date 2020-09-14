@@ -226,9 +226,9 @@
           let box1=window.document.querySelector('#box1')
           let box2=window.document.querySelector('#box2')
           let box3=window.document.querySelector('#box3')
-          window.onscroll=function(){loadButton()}
-
-         function loadButton(){ 
+          window.onscroll=function(){loadItems()}
+          
+         function loadItems(){ 
            if(document.body.scrollTop>1100 || document.documentElement.scrollTop > 1100){
              btn.className='slideUp';
              box1.className='box1';
