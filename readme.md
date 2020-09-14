@@ -1,5 +1,5 @@
-# :arrow_up:ScrollToTop 
-- Click in a button that send you to the top of the page in a smooth mode.
+# Show items by scroll
+- When the user scroll the page some items appears with neat effects.
 
 **HTML5** 
 **CSS3** 
@@ -12,6 +12,7 @@
 ![screenshot-button](screenshot.png) 
 
 
-----
+
+*Above are the items that appear with the effect*
 
 *Git hub page available*
