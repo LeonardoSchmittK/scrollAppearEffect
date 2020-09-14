@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title></title>
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
       rel="stylesheet"
@@ -64,6 +64,7 @@
         width: 100%;
         height: auto;
         padding: 20px;
+        display: none;
         margin-bottom: 100px;
         letter-spacing: 0.3rem;
         font-size: 5rem;
@@ -88,10 +89,57 @@
         right: 20px;
         font-size: 2rem;
         vertical-align: middle;
-
         animation: wiggleIcon 0.5s infinite alternate;
       }
+      button.slideUp{
+        display:block;
+        animation:popUpButton 1s ;
+      }
 
+      article{
+       width:100%; 
+       height: auto;
+       background-color:transparent;
+       display: flex; 
+       flex-direction: row;
+       padding: 2rem;
+       margin-bottom: 100px;
+       justify-content: center;
+      } 
+      #box1{
+       width: 250px;
+       height: 250px;
+       background:yellow;
+       margin-right:30px;
+      }
+      #box2{
+       width: 250px;
+       height: 250px;
+       background:yellow;
+       margin-right:30px;
+
+      }
+      #box3{
+       width: 250px;
+       height: 250px;
+       background:yellow;
+
+      }
+
+      .box1{
+        animation:popUpBox 1s;
+       
+      }
+      
+      .box2{
+        animation:popUpBox 1s;
+       
+      }
+      .box3{
+        animation:popUpBox 1s;
+       
+      }
+      
       @keyframes wiggleIcon {
         from {
           bottom: 20px;
@@ -100,12 +148,32 @@
           bottom: 0;
         }
       }
+
+      @keyframes popUpButton{
+        from{
+         opacity: 0;
+         width:90%;
+        }
+        to{
+         opacity: 1;
+        }
+      }
+
+      @keyframes popUpBox{
+        from{
+         opacity: 0;
+         width: 0%;
+        }
+        to{
+         opacity: 1;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <section>
-        <h1>Scroll to the bottom to see the button</h1>
+        <h1>Scroll to see the effect</h1>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi quae
           exercitationem repellendus modi, odio quos minus. Distinctio quisquam
@@ -133,25 +201,17 @@
           fugit magnam maiores ipsa sunt distinctio, maxime quidem suscipit
           voluptas. Aperiam quas recusandae nesciunt adipisci?
         </p>
+        <article> 
+        <div id='box1' ></div>
+        <div id='box2' ></div>
+        <div id='box3' ></div>
+       </article>
       </section>
       <button id='btn' onclick='backToTop()' " onclick="window.scroll(0,0)">
         <i class="fas fa-arrow-up"></i>Back
       </button>
-      <pre>
-       <mark>Both work out</mark>
-        window.scroll(0,0); 
-        window.scrollTo(0,0);
-        <mark>Also, you can make an object with some presets</mark>
-        window.scroll({
-         top:'0',
-         left:'0',
-         behavior:'smooth'
-       })
-      </pre>
     </div>
-
     <script>
-     
         let btn=window.document.querySelector('#btn') 
 
          function backToTop(){
@@ -162,6 +222,20 @@
            })
          }
          
+          let container=window.document.querySelector('.container');
+          let box1=window.document.querySelector('#box1')
+          let box2=window.document.querySelector('#box2')
+          let box3=window.document.querySelector('#box3')
+          window.onscroll=function(){loadButton()}
+
+         function loadButton(){ 
+           if(document.body.scrollTop>1100 || document.documentElement.scrollTop > 1100){
+             btn.className='slideUp';
+             box1.className='box1';
+             box2.className='box2';
+             box3.className='box3';
+           }           
+         }
     </script>
   </body>
 </html>
